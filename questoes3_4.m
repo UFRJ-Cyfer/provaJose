@@ -61,9 +61,11 @@ saveas(freqzDigitalFig,'images/questao3/ZeroPoleDigital','png')
 nPoints = 128; % nao sei quantos pontos devem ser aqui....
 blackmanWindow = blackman(128);
 
+%%% letra B
 bHamming = fir1(hammingOrder, angularFrequencyHamming);
 bBlackman = fir1(blackmanOrder, angularFrequencyBlackman, blackmanWindow);
 
+%%% letra C
 hammingFig = figure;
 freqz(bHamming)
 title('Janela de Hamming')
