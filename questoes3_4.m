@@ -6,8 +6,8 @@ attBandPass = 0.3; % dB
 attBandRej = 42; % dB
 fc = 25e3; % Hz
 
-Wp = fBandPass/(2*fs);
-Ws = fc/(2*fs);
+Wp = fBandPass/(fs/2);
+Ws = fc/(fs/2);
 
 
 %%% letra A
@@ -24,7 +24,7 @@ Ws = fc/(2*fs);
 
 %%% letra D
 figure;
-freqz(num,den)
+freqz(num,den,10000)
 title('Filtro Analógico')
 
 figure;
@@ -32,12 +32,11 @@ zplane(num,den)
 title('Filtro Analógico')
 
 figure;
-freqz(numDigital,denDigital)
+freqz(numDigital,denDigital,10000)
 title('Filtro Digital')
 
 figure;
 zplane(numDigital,denDigital)
 title('Filtro Digital')
-
 
 %% Questão 4
