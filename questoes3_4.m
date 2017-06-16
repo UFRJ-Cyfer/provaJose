@@ -23,20 +23,38 @@ Ws = fc/(fs/2);
 
 
 %%% letra D
+
+%%%%% metodo 1 de salvar
 figure;
 freqz(num,den,10000)
 title('Filtro Analógico')
+saveas(gcf,'images/FrequencyResponseAnalog','png')
 
 figure;
 zplane(num,den)
 title('Filtro Analógico')
+saveas(gcf,'images/ZeroPoleAnalog','png')
 
-figure;
+
+%%%%% metodo 2 de salvar
+freqzDigitalFig = figure;
 freqz(numDigital,denDigital,10000)
 title('Filtro Digital')
-
-figure;
+zPlaneDigitalFig = figure;
 zplane(numDigital,denDigital)
 title('Filtro Digital')
+
+
+saveas(zPlaneDigitalFig,'images/FrequencyResponseDigital','png')
+saveas(freqzDigitalFig,'images/ZeroPoleDigital','png')
+
+% ah = findobj('Type','figure'); % get all figures
+% for m=1:numel(ah) % go over all axes
+%   set(findall(ah(m),'-property','FontSize'),'FontSize',16)
+%    axes_handle = findobj(ah(m),'type','axes');
+%    ylabel_handle = get(axes_handle,'ylabel');
+%    set(ah(m),'Color','w')
+%   % saveas(ah(m),[ylabel_handle.String num2str(m) '.png'])
+% end
 
 %% Questão 4
