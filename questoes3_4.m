@@ -28,12 +28,12 @@ Ws = fc/(fs/2);
 figure;
 freqz(num,den,10000)
 title('Filtro Analógico')
-saveas(gcf,'images/FrequencyResponseAnalog','png')
+saveas(gcf,'images/questao3/FrequencyResponseAnalog','png')
 
 figure;
 zplane(num,den)
 title('Filtro Analógico')
-saveas(gcf,'images/ZeroPoleAnalog','png')
+saveas(gcf,'images/questao3/ZeroPoleAnalog','png')
 
 
 %%%%% metodo 2 de salvar
@@ -45,8 +45,8 @@ zplane(numDigital,denDigital)
 title('Filtro Digital')
 
 
-saveas(zPlaneDigitalFig,'images/FrequencyResponseDigital','png')
-saveas(freqzDigitalFig,'images/ZeroPoleDigital','png')
+saveas(zPlaneDigitalFig,'images/questao3/FrequencyResponseDigital','png')
+saveas(freqzDigitalFig,'images/questao3/ZeroPoleDigital','png')
 
 % ah = findobj('Type','figure'); % get all figures
 % for m=1:numel(ah) % go over all axes
@@ -58,3 +58,19 @@ saveas(freqzDigitalFig,'images/ZeroPoleDigital','png')
 % end
 
 %% Questão 4
+nPoints = 128; % nao sei quantos pontos devem ser aqui....
+blackmanWindow = blackman(128);
+
+bHamming = fir1(hammingOrder, angularFrequencyHamming);
+bBlackman = fir1(blackmanOrder, angularFrequencyBlackman, blackmanWindow);
+
+hammingFig = figure;
+freqz(bHamming)
+title('Janela de Hamming')
+
+blackmanFig = figure;
+freqz(bBlackman)
+title('Janela de Blackman')
+
+saveas(hammingFig,'images/questao4/hammingFilter','png')
+saveas(blackmanFig,'images/questao4/blackmanFilter','png')
